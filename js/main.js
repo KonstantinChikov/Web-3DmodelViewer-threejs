@@ -2,11 +2,9 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
-// Create a Three.js Scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-// Mouse position tracking
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 
@@ -34,7 +32,6 @@ scene.add(ambientLight);
 
 // Load the model based on objToRender
 function loadModel() {
-  // Remove existing object from the scene if any
   if (object) {
     scene.remove(object);
   }
@@ -61,15 +58,14 @@ function loadModel() {
       controls = new OrbitControls(camera, renderer.domElement);
     }
   } else {
-    camera.position.z = 500; // Default position for 'eye'
+    camera.position.z = 500;
     if (controls) {
-      controls.dispose(); // Dispose of controls if we are not using them
+      controls.dispose();
       controls = null;
     }
   }
 }
 
-// Call loadModel initially to load the default model (eye)
 loadModel();
 
 // Toggle the model when the button is clicked
@@ -88,8 +84,7 @@ document.getElementById("toggleModelButton").onclick = function () {
     camera.position.set(0, 0, 500); // Reset camera for 'eye' model
   }
 
-  loadModel(); // Reload the model
-
+  loadModel();
   // Update the previous model for the next toggle
   previousModel = objToRender;
 };
@@ -101,7 +96,6 @@ window.addEventListener("resize", function () {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-// Mouse move listener to make the eye move
 document.onmousemove = (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
@@ -120,5 +114,4 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// Start the animation
 animate();

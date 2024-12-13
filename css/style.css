@@ -24,10 +24,10 @@ header h1 {
 }
 
 .button{
-  position: fixed; /* Fix the button's position relative to the viewport */
-    bottom: 20px;    /* Distance from the bottom of the screen */
-    left: 50%;       /* Position it at the center horizontally */
-    transform: translateX(-50%); /* Offset it by 50% of its own width to truly center it */
+  position: fixed; 
+    bottom: 20px;    
+    left: 50%;       
+    transform: translateX(-50%); 
     background-color: rgb(0, 0, 0);
     color: white;
     padding: 10px 20px;
